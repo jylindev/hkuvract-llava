@@ -1,5 +1,4 @@
-This project is based on lmms-finetune by Zhang and Lin, which is licensed under the Apache License 2.0.
-I modified the code to adapt it for third-person VR video understanding, including support for customized datasets and action-centric prompts.
+This project is based on llava-next-video, with several fine-tuning modifications made to adapt it to our lab’s VR dataset.
 
 @software{Zhang_lmms-finetune,
 author = {Zhang, Jingyang and Lin, Yueqian},
