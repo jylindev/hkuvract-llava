@@ -1,0 +1,2 @@
+nohup: ignoring input
+example_scripts/run_eval.sh: line 16: accelerate: command not found

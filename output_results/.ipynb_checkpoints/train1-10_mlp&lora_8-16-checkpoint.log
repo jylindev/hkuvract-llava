@@ -1,0 +1,598 @@
+nohup: ignoring input
+ipex flag is deprecated, will be removed in Accelerate v1.10. From 2.7.0, PyTorch has all needed optimizations for Intel CPU and XPU.
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_processes` was set to a value of `2`
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+/root/miniconda3/envs/lmms-finetune/lib/python3.10/site-packages/transformers/deepspeed.py:24: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/root/miniconda3/envs/lmms-finetune/lib/python3.10/site-packages/transformers/deepspeed.py:24: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+[2025-07-14 14:45:31,566] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-14 14:45:31,633] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.7
+[93m [WARNING] [0m using untested triton version (3.3.1), only 1.0.0 is known to be compatible
+/root/miniconda3/envs/lmms-finetune/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/root/miniconda3/envs/lmms-finetune/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.7
+[93m [WARNING] [0m using untested triton version (3.3.1), only 1.0.0 is known to be compatible
+/root/miniconda3/envs/lmms-finetune/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/root/miniconda3/envs/lmms-finetune/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+[2025-07-14 14:45:32,611] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-07-14 14:45:32,695] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-07-14 14:45:32,696] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Loading model, tokenizer, processor...
+[2025-07-14 14:45:33,938] [INFO] [partition_parameters.py:345:__exit__] finished initializing model - num_params = 687, num_elems = 7.06B
+Loading checkpoint shards:   0%|                                                          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:   0%|                                                          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|████████████████▋                                 | 1/3 [00:01<00:02,  1.29s/it]Loading checkpoint shards:  67%|█████████████████████████████████▎                | 2/3 [00:01<00:00,  1.43it/s]Loading checkpoint shards: 100%|██████████████████████████████████████████████████| 3/3 [00:01<00:00,  1.98it/s]Loading checkpoint shards: 100%|██████████████████████████████████████████████████| 3/3 [00:01<00:00,  1.62it/s]
+Some kwargs in processor config are unused and will not have any effect: num_additional_image_tokens. 
+Loading checkpoint shards:  33%|████████████████▋                                 | 1/3 [00:02<00:05,  2.53s/it]Loading checkpoint shards:  67%|█████████████████████████████████▎                | 2/3 [00:04<00:02,  2.04s/it]Loading checkpoint shards: 100%|██████████████████████████████████████████████████| 3/3 [00:05<00:00,  1.77s/it]Loading checkpoint shards: 100%|██████████████████████████████████████████████████| 3/3 [00:05<00:00,  1.89s/it]
+Some kwargs in processor config are unused and will not have any effect: num_additional_image_tokens. 
+Vision encoder is freezed... including:
+	vision_tower
+Other multimodal component is freezed... including:
+	image_newline
+	vision_resampler
+LoRA for LLM enabled...
+Vision projector will be fully trained...
+Trainable parameters:
+	base_model.model.multi_modal_projector.modules_to_save.default.linear_1.weight
+	base_model.model.multi_modal_projector.modules_to_save.default.linear_1.bias
+	base_model.model.multi_modal_projector.modules_to_save.default.linear_2.weight
+	base_model.model.multi_modal_projector.modules_to_save.default.linear_2.bias
+	base_model.model.language_model.model.layers.0.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.0.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.0.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.0.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.0.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.0.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.0.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.0.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.0.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.0.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.0.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.0.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.0.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.0.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.1.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.1.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.1.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.1.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.1.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.1.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.1.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.1.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.1.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.1.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.1.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.1.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.1.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.1.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.2.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.2.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.2.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.2.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.2.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.2.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.2.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.2.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.2.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.2.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.2.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.2.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.2.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.2.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.3.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.3.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.3.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.3.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.3.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.3.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.3.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.3.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.3.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.3.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.3.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.3.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.3.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.3.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.4.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.4.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.4.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.4.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.4.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.4.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.4.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.4.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.4.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.4.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.4.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.4.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.4.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.4.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.5.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.5.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.5.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.5.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.5.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.5.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.5.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.5.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.5.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.5.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.5.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.5.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.5.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.5.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.6.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.6.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.6.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.6.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.6.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.6.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.6.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.6.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.6.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.6.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.6.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.6.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.6.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.6.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.7.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.7.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.7.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.7.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.7.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.7.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.7.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.7.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.7.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.7.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.7.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.7.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.7.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.7.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.8.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.8.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.8.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.8.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.8.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.8.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.8.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.8.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.8.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.8.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.8.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.8.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.8.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.8.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.9.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.9.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.9.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.9.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.9.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.9.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.9.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.9.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.9.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.9.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.9.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.9.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.9.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.9.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.10.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.10.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.10.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.10.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.10.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.10.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.10.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.10.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.10.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.10.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.10.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.10.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.10.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.10.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.11.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.11.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.11.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.11.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.11.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.11.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.11.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.11.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.11.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.11.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.11.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.11.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.11.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.11.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.12.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.12.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.12.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.12.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.12.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.12.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.12.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.12.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.12.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.12.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.12.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.12.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.12.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.12.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.13.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.13.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.13.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.13.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.13.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.13.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.13.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.13.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.13.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.13.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.13.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.13.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.13.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.13.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.14.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.14.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.14.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.14.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.14.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.14.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.14.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.14.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.14.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.14.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.14.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.14.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.14.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.14.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.15.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.15.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.15.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.15.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.15.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.15.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.15.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.15.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.15.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.15.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.15.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.15.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.15.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.15.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.16.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.16.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.16.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.16.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.16.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.16.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.16.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.16.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.16.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.16.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.16.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.16.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.16.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.16.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.17.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.17.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.17.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.17.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.17.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.17.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.17.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.17.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.17.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.17.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.17.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.17.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.17.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.17.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.18.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.18.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.18.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.18.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.18.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.18.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.18.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.18.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.18.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.18.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.18.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.18.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.18.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.18.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.19.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.19.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.19.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.19.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.19.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.19.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.19.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.19.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.19.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.19.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.19.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.19.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.19.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.19.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.20.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.20.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.20.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.20.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.20.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.20.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.20.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.20.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.20.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.20.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.20.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.20.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.20.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.20.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.21.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.21.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.21.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.21.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.21.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.21.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.21.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.21.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.21.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.21.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.21.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.21.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.21.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.21.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.22.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.22.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.22.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.22.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.22.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.22.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.22.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.22.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.22.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.22.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.22.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.22.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.22.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.22.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.23.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.23.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.23.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.23.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.23.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.23.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.23.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.23.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.23.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.23.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.23.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.23.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.23.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.23.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.24.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.24.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.24.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.24.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.24.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.24.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.24.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.24.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.24.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.24.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.24.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.24.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.24.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.24.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.25.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.25.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.25.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.25.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.25.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.25.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.25.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.25.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.25.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.25.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.25.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.25.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.25.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.25.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.26.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.26.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.26.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.26.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.26.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.26.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.26.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.26.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.26.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.26.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.26.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.26.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.26.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.26.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.27.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.27.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.27.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.27.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.27.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.27.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.27.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.27.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.27.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.27.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.27.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.27.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.27.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.27.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.28.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.28.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.28.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.28.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.28.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.28.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.28.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.28.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.28.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.28.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.28.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.28.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.28.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.28.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.29.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.29.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.29.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.29.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.29.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.29.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.29.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.29.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.29.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.29.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.29.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.29.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.29.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.29.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.30.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.30.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.30.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.30.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.30.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.30.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.30.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.30.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.30.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.30.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.30.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.30.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.30.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.30.mlp.down_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.31.self_attn.q_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.31.self_attn.q_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.31.self_attn.k_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.31.self_attn.k_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.31.self_attn.v_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.31.self_attn.v_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.31.self_attn.o_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.31.self_attn.o_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.31.mlp.gate_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.31.mlp.gate_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.31.mlp.up_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.31.mlp.up_proj.lora_B.default.weight
+	base_model.model.language_model.model.layers.31.mlp.down_proj.lora_A.default.weight
+	base_model.model.language_model.model.layers.31.mlp.down_proj.lora_B.default.weight
+Loading data...
+/root/miniconda3/envs/lmms-finetune/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py:4631: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+Parameter Offload: Total persistent parameters: 12145664 in 667 params
+/root/miniconda3/envs/lmms-finetune/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py:4631: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+  0%|                                                                                  | 0/2448 [00:00<?, ?it/s]/root/miniconda3/envs/lmms-finetune/lib/python3.10/site-packages/torch/utils/checkpoint.py:86: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+/root/miniconda3/envs/lmms-finetune/lib/python3.10/site-packages/torch/utils/checkpoint.py:86: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+Starting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)
+Starting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)
+  0%|                                                                        | 1/2448 [00:07<5:20:32,  7.86s/it]                                                                                                                {'loss': 2.637, 'grad_norm': 2.6556036141026573, 'learning_rate': 2.702702702702703e-07, 'epoch': 0.0}
+  0%|                                                                        | 1/2448 [00:07<5:20:32,  7.86s/it]  0%|                                                                        | 2/2448 [00:17<6:14:42,  9.19s/it]                                                                                                                {'loss': 2.8295, 'grad_norm': 2.232208007612879, 'learning_rate': 5.405405405405406e-07, 'epoch': 0.0}
+  0%|                                                                        | 2/2448 [00:17<6:14:42,  9.19s/it]  0%|                                                                        | 3/2448 [00:21<4:25:17,  6.51s/it]                                                                                                                {'loss': 2.6594, 'grad_norm': 2.1252473749297667, 'learning_rate': 8.108108108108109e-07, 'epoch': 0.0}
+  0%|                                                                        | 3/2448 [00:21<4:25:17,  6.51s/it]  0%|                                                                        | 4/2448 [00:24<3:34:07,  5.26s/it]                                                                                                                {'loss': 3.081, 'grad_norm': 1.923515717096712, 'learning_rate': 1.0810810810810812e-06, 'epoch': 0.0}
+  0%|                                                                        | 4/2448 [00:24<3:34:07,  5.26s/it]  0%|▏                                                                       | 5/2448 [00:27<3:05:28,  4.56s/it]                                                                                                                {'loss': 3.2159, 'grad_norm': 1.9203545022287685, 'learning_rate': 1.3513513513513515e-06, 'epoch': 0.0}
+  0%|▏                                                                       | 5/2448 [00:27<3:05:28,  4.56s/it]  0%|▏                                                                       | 6/2448 [00:31<2:48:06,  4.13s/it]                                                                                                                {'loss': 3.0271, 'grad_norm': 1.9345288283003341, 'learning_rate': 1.6216216216216219e-06, 'epoch': 0.0}
+  0%|▏                                                                       | 6/2448 [00:31<2:48:06,  4.13s/it]  0%|▏                                                                       | 7/2448 [00:34<2:37:00,  3.86s/it]                                                                                                                {'loss': 3.0342, 'grad_norm': 2.164836572474219, 'learning_rate': 1.8918918918918922e-06, 'epoch': 0.0}
+  0%|▏                                                                       | 7/2448 [00:34<2:37:00,  3.86s/it]  0%|▏                                                                       | 8/2448 [00:37<2:29:42,  3.68s/it]                                                                                                                {'loss': 2.9222, 'grad_norm': 2.007597207209946, 'learning_rate': 2.1621621621621623e-06, 'epoch': 0.0}
+  0%|▏                                                                       | 8/2448 [00:37<2:29:42,  3.68s/it]  0%|▎                                                                       | 9/2448 [00:41<2:24:42,  3.56s/it]                                                                                                                {'loss': 3.2647, 'grad_norm': 2.2585005688882402, 'learning_rate': 2.432432432432433e-06, 'epoch': 0.0}
+  0%|▎                                                                       | 9/2448 [00:41<2:24:42,  3.56s/it]  0%|▎                                                                      | 10/2448 [00:44<2:21:26,  3.48s/it]                                                                                                                {'loss': 2.9809, 'grad_norm': 1.7377477387281441, 'learning_rate': 2.702702702702703e-06, 'epoch': 0.0}
+  0%|▎                                                                      | 10/2448 [00:44<2:21:26,  3.48s/it]  0%|▎                                                                      | 11/2448 [00:47<2:19:27,  3.43s/it]                                                                                                                {'loss': 3.0625, 'grad_norm': 2.2647658575184275, 'learning_rate': 2.9729729729729736e-06, 'epoch': 0.0}
+  0%|▎                                                                      | 11/2448 [00:47<2:19:27,  3.43s/it]  0%|▎                                                                      | 12/2448 [00:51<2:17:51,  3.40s/it]                                                                                                                {'loss': 2.935, 'grad_norm': 2.909846839165189, 'learning_rate': 3.2432432432432437e-06, 'epoch': 0.0}
+  0%|▎                                                                      | 12/2448 [00:51<2:17:51,  3.40s/it]  1%|▍                                                                      | 13/2448 [00:54<2:16:43,  3.37s/it]                                                                                                                {'loss': 2.9041, 'grad_norm': 2.1529607188142594, 'learning_rate': 3.513513513513514e-06, 'epoch': 0.01}
+  1%|▍                                                                      | 13/2448 [00:54<2:16:43,  3.37s/it]  1%|▍                                                                      | 14/2448 [00:57<2:15:55,  3.35s/it]                                                                                                                {'loss': 2.8667, 'grad_norm': 2.438940067079799, 'learning_rate': 3.7837837837837844e-06, 'epoch': 0.01}
+  1%|▍                                                                      | 14/2448 [00:57<2:15:55,  3.35s/it]  1%|▍                                                                      | 15/2448 [01:01<2:15:21,  3.34s/it]                                                                                                                {'loss': 2.8981, 'grad_norm': 2.554496513718345, 'learning_rate': 4.0540540540540545e-06, 'epoch': 0.01}
+  1%|▍                                                                      | 15/2448 [01:01<2:15:21,  3.34s/it]  1%|▍                                                                      | 16/2448 [01:04<2:14:54,  3.33s/it]                                                                                                                {'loss': 2.7381, 'grad_norm': 2.2069629858237247, 'learning_rate': 4.324324324324325e-06, 'epoch': 0.01}
+  1%|▍                                                                      | 16/2448 [01:04<2:14:54,  3.33s/it]  1%|▍                                                                      | 17/2448 [01:07<2:14:30,  3.32s/it]                                                                                                                {'loss': 3.1149, 'grad_norm': 2.633634973822636, 'learning_rate': 4.594594594594596e-06, 'epoch': 0.01}
+  1%|▍                                                                      | 17/2448 [01:07<2:14:30,  3.32s/it]  1%|▌                                                                      | 18/2448 [01:10<2:14:09,  3.31s/it]                                                                                                                {'loss': 2.6304, 'grad_norm': 2.1938300139528, 'learning_rate': 4.864864864864866e-06, 'epoch': 0.01}
+  1%|▌                                                                      | 18/2448 [01:10<2:14:09,  3.31s/it]  1%|▌                                                                      | 19/2448 [01:14<2:14:01,  3.31s/it]                                                                                                                {'loss': 2.8017, 'grad_norm': 1.9233499554358748, 'learning_rate': 5.135135135135135e-06, 'epoch': 0.01}
+  1%|▌                                                                      | 19/2448 [01:14<2:14:01,  3.31s/it]  1%|▌                                                                      | 20/2448 [01:17<2:13:58,  3.31s/it]                                                                                                                {'loss': 2.5988, 'grad_norm': 1.9119844970059243, 'learning_rate': 5.405405405405406e-06, 'epoch': 0.01}
+  1%|▌                                                                      | 20/2448 [01:17<2:13:58,  3.31s/it]  1%|▌                                                                      | 21/2448 [01:20<2:14:02,  3.31s/it]                                                                                                                {'loss': 2.6257, 'grad_norm': 1.7280982192656258, 'learning_rate': 5.675675675675676e-06, 'epoch': 0.01}
+  1%|▌                                                                      | 21/2448 [01:20<2:14:02,  3.31s/it]  1%|▋                                                                      | 22/2448 [01:24<2:14:04,  3.32s/it]                                                                                                                {'loss': 2.3991, 'grad_norm': 2.041405931372706, 'learning_rate': 5.945945945945947e-06, 'epoch': 0.01}
+  1%|▋                                                                      | 22/2448 [01:24<2:14:04,  3.32s/it]  1%|▋                                                                      | 23/2448 [01:27<2:14:01,  3.32s/it]                                                                                                                {'loss': 2.642, 'grad_norm': 1.6692484967311603, 'learning_rate': 6.2162162162162164e-06, 'epoch': 0.01}
+  1%|▋                                                                      | 23/2448 [01:27<2:14:01,  3.32s/it]  1%|▋                                                                      | 24/2448 [01:30<2:13:58,  3.32s/it]                                                                                                                {'loss': 2.582, 'grad_norm': 1.7545200816774817, 'learning_rate': 6.486486486486487e-06, 'epoch': 0.01}
+  1%|▋                                                                      | 24/2448 [01:30<2:13:58,  3.32s/it]  1%|▋                                                                      | 25/2448 [01:34<2:13:48,  3.31s/it]                                                                                                                {'loss': 2.8112, 'grad_norm': 1.889993600951797, 'learning_rate': 6.7567567567567575e-06, 'epoch': 0.01}
+  1%|▋                                                                      | 25/2448 [01:34<2:13:48,  3.31s/it]  1%|▊                                                                      | 26/2448 [01:37<2:13:59,  3.32s/it]                                                                                                                {'loss': 2.4955, 'grad_norm': 2.122799651587566, 'learning_rate': 7.027027027027028e-06, 'epoch': 0.01}
+  1%|▊                                                                      | 26/2448 [01:37<2:13:59,  3.32s/it]  1%|▊                                                                      | 27/2448 [01:40<2:13:44,  3.31s/it]                                                                                                                {'loss': 2.4525, 'grad_norm': 1.8951198472611692, 'learning_rate': 7.297297297297298e-06, 'epoch': 0.01}
+  1%|▊                                                                      | 27/2448 [01:40<2:13:44,  3.31s/it]  1%|▊                                                                      | 28/2448 [01:44<2:13:35,  3.31s/it]                                                                                                                {'loss': 2.7167, 'grad_norm': 1.7368421570751678, 'learning_rate': 7.567567567567569e-06, 'epoch': 0.01}
+  1%|▊                                                                      | 28/2448 [01:44<2:13:35,  3.31s/it]  1%|▊                                                                      | 29/2448 [01:47<2:13:25,  3.31s/it]                                                                                                                {'loss': 2.26, 'grad_norm': 1.6051340711615316, 'learning_rate': 7.837837837837838e-06, 'epoch': 0.01}
+  1%|▊                                                                      | 29/2448 [01:47<2:13:25,  3.31s/it]  1%|▊                                                                      | 30/2448 [01:50<2:13:18,  3.31s/it]                                                                                                                {'loss': 2.6707, 'grad_norm': 1.6183684925445514, 'learning_rate': 8.108108108108109e-06, 'epoch': 0.01}
+  1%|▊                                                                      | 30/2448 [01:50<2:13:18,  3.31s/it]  1%|▉                                                                      | 31/2448 [01:53<2:13:13,  3.31s/it]                                                                                                                {'loss': 2.2529, 'grad_norm': 1.3856342812692195, 'learning_rate': 8.378378378378378e-06, 'epoch': 0.01}
+  1%|▉                                                                      | 31/2448 [01:53<2:13:13,  3.31s/it]  1%|▉                                                                      | 32/2448 [01:57<2:13:09,  3.31s/it]                                                                                                                {'loss': 2.9779, 'grad_norm': 2.0233376857318586, 'learning_rate': 8.64864864864865e-06, 'epoch': 0.01}
+  1%|▉                                                                      | 32/2448 [01:57<2:13:09,  3.31s/it]  1%|▉                                                                      | 33/2448 [02:00<2:13:08,  3.31s/it]                                                                                                                {'loss': 2.5644, 'grad_norm': 1.4755863758673264, 'learning_rate': 8.91891891891892e-06, 'epoch': 0.01}
+  1%|▉                                                                      | 33/2448 [02:00<2:13:08,  3.31s/it]  1%|▉                                                                      | 34/2448 [02:03<2:13:04,  3.31s/it]                                                                                                                {'loss': 2.6364, 'grad_norm': 1.771530846178922, 'learning_rate': 9.189189189189191e-06, 'epoch': 0.01}
+  1%|▉                                                                      | 34/2448 [02:03<2:13:04,  3.31s/it]  1%|█                                                                      | 35/2448 [02:07<2:13:00,  3.31s/it]                                                                                                                {'loss': 2.6666, 'grad_norm': 1.7087534171601433, 'learning_rate': 9.45945945945946e-06, 'epoch': 0.01}
+  1%|█                                                                      | 35/2448 [02:07<2:13:00,  3.31s/it]  1%|█                                                                      | 36/2448 [02:10<2:12:58,  3.31s/it]                                                                                                                {'loss': 2.4119, 'grad_norm': 1.7386384401928467, 'learning_rate': 9.729729729729732e-06, 'epoch': 0.01}
+  1%|█                                                                      | 36/2448 [02:10<2:12:58,  3.31s/it]  2%|█                                                                      | 37/2448 [02:13<2:12:54,  3.31s/it]                                                                                                                {'loss': 2.0302, 'grad_norm': 1.528897313785487, 'learning_rate': 1e-05, 'epoch': 0.02}
+  2%|█                                                                      | 37/2448 [02:13<2:12:54,  3.31s/it]  2%|█                                                                      | 38/2448 [02:17<2:13:02,  3.31s/it]                                                                                                                {'loss': 2.2905, 'grad_norm': 1.9222791213957489, 'learning_rate': 1.027027027027027e-05, 'epoch': 0.02}
+  2%|█                                                                      | 38/2448 [02:17<2:13:02,  3.31s/it]  2%|█▏                                                                     | 39/2448 [02:20<2:12:54,  3.31s/it]                                                                                                                {'loss': 2.5521, 'grad_norm': 1.6538411097767005, 'learning_rate': 1.0540540540540541e-05, 'epoch': 0.02}
+  2%|█▏                                                                     | 39/2448 [02:20<2:12:54,  3.31s/it]  2%|█▏                                                                     | 40/2448 [02:23<2:12:49,  3.31s/it]                                                                                                                {'loss': 2.4445, 'grad_norm': 1.580113316010347, 'learning_rate': 1.0810810810810812e-05, 'epoch': 0.02}
+  2%|█▏                                                                     | 40/2448 [02:23<2:12:49,  3.31s/it]  2%|█▏                                                                     | 41/2448 [02:27<2:12:48,  3.31s/it]                                                                                                                {'loss': 2.4107, 'grad_norm': 1.4133214124469158, 'learning_rate': 1.1081081081081081e-05, 'epoch': 0.02}
+  2%|█▏                                                                     | 41/2448 [02:27<2:12:48,  3.31s/it]  2%|█▏                                                                     | 42/2448 [02:30<2:12:44,  3.31s/it]                                                                                                                {'loss': 2.3624, 'grad_norm': 2.22378530837556, 'learning_rate': 1.1351351351351352e-05, 'epoch': 0.02}
+  2%|█▏                                                                     | 42/2448 [02:30<2:12:44,  3.31s/it]  2%|█▏                                                                     | 43/2448 [02:33<2:12:42,  3.31s/it]                                                                                                                {'loss': 2.4285, 'grad_norm': 1.8282731805730126, 'learning_rate': 1.1621621621621622e-05, 'epoch': 0.02}
+  2%|█▏                                                                     | 43/2448 [02:33<2:12:42,  3.31s/it]  2%|█▎                                                                     | 44/2448 [02:36<2:12:36,  3.31s/it]                                                                                                                {'loss': 2.321, 'grad_norm': 2.8102621353594666, 'learning_rate': 1.1891891891891894e-05, 'epoch': 0.02}
+  2%|█▎                                                                     | 44/2448 [02:36<2:12:36,  3.31s/it]  2%|█▎                                                                     | 45/2448 [02:40<2:12:27,  3.31s/it]                                                                                                                {'loss': 1.9297, 'grad_norm': 2.450547549441629, 'learning_rate': 1.2162162162162164e-05, 'epoch': 0.02}
+  2%|█▎                                                                     | 45/2448 [02:40<2:12:27,  3.31s/it]  2%|█▎                                                                     | 46/2448 [02:43<2:12:26,  3.31s/it]                                                                                                                {'loss': 2.6285, 'grad_norm': 1.3206305327567043, 'learning_rate': 1.2432432432432433e-05, 'epoch': 0.02}
+  2%|█▎                                                                     | 46/2448 [02:43<2:12:26,  3.31s/it]  2%|█▎                                                                     | 47/2448 [02:46<2:12:26,  3.31s/it]                                                                                                                {'loss': 2.3023, 'grad_norm': 1.4490802640838867, 'learning_rate': 1.2702702702702702e-05, 'epoch': 0.02}
+  2%|█▎                                                                     | 47/2448 [02:46<2:12:26,  3.31s/it]  2%|█▍                                                                     | 48/2448 [02:50<2:12:19,  3.31s/it]                                                                                                                {'loss': 1.9278, 'grad_norm': 1.3539208327469952, 'learning_rate': 1.2972972972972975e-05, 'epoch': 0.02}
+  2%|█▍                                                                     | 48/2448 [02:50<2:12:19,  3.31s/it]  2%|█▍                                                                     | 49/2448 [02:53<2:12:10,  3.31s/it]                                                                                                                {'loss': 2.5236, 'grad_norm': 1.7197800102852865, 'learning_rate': 1.3243243243243244e-05, 'epoch': 0.02}
+  2%|█▍                                                                     | 49/2448 [02:53<2:12:10,  3.31s/it]  2%|█▍                                                                     | 50/2448 [02:56<2:12:16,  3.31s/it]                                                                                                                {'loss': 1.9459, 'grad_norm': 1.8081828015644705, 'learning_rate': 1.3513513513513515e-05, 'epoch': 0.02}
+  2%|█▍                                                                     | 50/2448 [02:56<2:12:16,  3.31s/it]  2%|█▍                                                                     | 51/2448 [03:00<2:12:22,  3.31s/it]                                                                                                                {'loss': 2.4087, 'grad_norm': 1.6200443683349153, 'learning_rate': 1.3783783783783784e-05, 'epoch': 0.02}
+  2%|█▍                                                                     | 51/2448 [03:00<2:12:22,  3.31s/it]  2%|█▌                                                                     | 52/2448 [03:03<2:12:12,  3.31s/it]                                                                                                                {'loss': 2.0398, 'grad_norm': 1.2805563619664269, 'learning_rate': 1.4054054054054055e-05, 'epoch': 0.02}
+  2%|█▌                                                                     | 52/2448 [03:03<2:12:12,  3.31s/it]  2%|█▌                                                                     | 53/2448 [03:06<2:12:10,  3.31s/it]                                                                                                                {'loss': 1.9063, 'grad_norm': 2.456988158320972, 'learning_rate': 1.4324324324324326e-05, 'epoch': 0.02}
+  2%|█▌                                                                     | 53/2448 [03:06<2:12:10,  3.31s/it]  2%|█▌                                                                     | 54/2448 [03:10<2:12:12,  3.31s/it]                                                                                                                {'loss': 1.6476, 'grad_norm': 1.455540762065595, 'learning_rate': 1.4594594594594596e-05, 'epoch': 0.02}
+  2%|█▌                                                                     | 54/2448 [03:10<2:12:12,  3.31s/it]  2%|█▌                                                                     | 55/2448 [03:13<2:12:05,  3.31s/it]                                                                                                                {'loss': 2.0988, 'grad_norm': 1.4385905422564451, 'learning_rate': 1.4864864864864865e-05, 'epoch': 0.02}
+  2%|█▌                                                                     | 55/2448 [03:13<2:12:05,  3.31s/it]  2%|█▌                                                                     | 56/2448 [03:16<2:12:00,  3.31s/it]                                                                                                                {'loss': 2.1661, 'grad_norm': 1.4665442428254751, 'learning_rate': 1.5135135135135138e-05, 'epoch': 0.02}
+  2%|█▌                                                                     | 56/2448 [03:16<2:12:00,  3.31s/it]  2%|█▋                                                                     | 57/2448 [03:20<2:11:58,  3.31s/it]                                                                                                                {'loss': 2.035, 'grad_norm': 1.3726382183715724, 'learning_rate': 1.540540540540541e-05, 'epoch': 0.02}
+  2%|█▋                                                                     | 57/2448 [03:20<2:11:58,  3.31s/it]  2%|█▋                                                                     | 58/2448 [03:23<2:12:16,  3.32s/it]                                                                                                                {'loss': 2.0921, 'grad_norm': 1.6468813312658501, 'learning_rate': 1.5675675675675676e-05, 'epoch': 0.02}
+  2%|█▋                                                                     | 58/2448 [03:23<2:12:16,  3.32s/it]  2%|█▋                                                                     | 59/2448 [03:26<2:12:07,  3.32s/it]                                                                                                                {'loss': 1.9775, 'grad_norm': 1.4954078225497232, 'learning_rate': 1.5945945945945947e-05, 'epoch': 0.02}
+  2%|█▋                                                                     | 59/2448 [03:26<2:12:07,  3.32s/it]  2%|█▋                                                                     | 60/2448 [03:29<2:11:53,  3.31s/it]                                                                                                                {'loss': 1.9177, 'grad_norm': 2.1263311362550077, 'learning_rate': 1.6216216216216218e-05, 'epoch': 0.02}
+  2%|█▋                                                                     | 60/2448 [03:29<2:11:53,  3.31s/it]  2%|█▊                                                                     | 61/2448 [03:33<2:11:44,  3.31s/it]                                                                                                                {'loss': 1.62, 'grad_norm': 1.6575064339760452, 'learning_rate': 1.648648648648649e-05, 'epoch': 0.02}
+  2%|█▊                                                                     | 61/2448 [03:33<2:11:44,  3.31s/it]  3%|█▊                                                                     | 62/2448 [03:36<2:11:36,  3.31s/it]                                                                                                                {'loss': 2.1779, 'grad_norm': 1.849510030317798, 'learning_rate': 1.6756756756756757e-05, 'epoch': 0.03}
+  3%|█▊                                                                     | 62/2448 [03:36<2:11:36,  3.31s/it]  3%|█▊                                                                     | 63/2448 [03:39<2:11:30,  3.31s/it]                                                                                                                {'loss': 1.5767, 'grad_norm': 1.45036986151642, 'learning_rate': 1.7027027027027028e-05, 'epoch': 0.03}
+  3%|█▊                                                                     | 63/2448 [03:39<2:11:30,  3.31s/it]  3%|█▊                                                                     | 64/2448 [03:43<2:11:25,  3.31s/it]                                                                                                                {'loss': 1.7914, 'grad_norm': 1.4838815253684912, 'learning_rate': 1.72972972972973e-05, 'epoch': 0.03}
+  3%|█▊                                                                     | 64/2448 [03:43<2:11:25,  3.31s/it]  3%|█▉                                                                     | 65/2448 [03:46<2:11:17,  3.31s/it]                                                                                                                {'loss': 2.144, 'grad_norm': 1.5437647982631386, 'learning_rate': 1.756756756756757e-05, 'epoch': 0.03}
+  3%|█▉                                                                     | 65/2448 [03:46<2:11:17,  3.31s/it]  3%|█▉                                                                     | 66/2448 [03:49<2:11:25,  3.31s/it]                                                                                                                {'loss': 1.4621, 'grad_norm': 2.132551842633992, 'learning_rate': 1.783783783783784e-05, 'epoch': 0.03}
+  3%|█▉                                                                     | 66/2448 [03:49<2:11:25,  3.31s/it]  3%|█▉                                                                     | 67/2448 [03:53<2:11:19,  3.31s/it]                                                                                                                {'loss': 1.5196, 'grad_norm': 1.65391865702644, 'learning_rate': 1.8108108108108108e-05, 'epoch': 0.03}
+  3%|█▉                                                                     | 67/2448 [03:53<2:11:19,  3.31s/it]  3%|█▉                                                                     | 68/2448 [03:56<2:11:20,  3.31s/it]                                                                                                                {'loss': 1.8932, 'grad_norm': 1.6326036482085329, 'learning_rate': 1.8378378378378383e-05, 'epoch': 0.03}
+  3%|█▉                                                                     | 68/2448 [03:56<2:11:20,  3.31s/it]  3%|██                                                                     | 69/2448 [03:59<2:11:15,  3.31s/it]                                                                                                                {'loss': 1.3277, 'grad_norm': 1.9007860568087505, 'learning_rate': 1.864864864864865e-05, 'epoch': 0.03}
+  3%|██                                                                     | 69/2448 [03:59<2:11:15,  3.31s/it]  3%|██                                                                     | 70/2448 [04:03<2:11:23,  3.31s/it]                                                                                                                {'loss': 1.7687, 'grad_norm': 1.664894576973299, 'learning_rate': 1.891891891891892e-05, 'epoch': 0.03}
+  3%|██                                                                     | 70/2448 [04:03<2:11:23,  3.31s/it]  3%|██                                                                     | 71/2448 [04:06<2:11:27,  3.32s/it]                                                                                                                {'loss': 1.3052, 'grad_norm': 1.6631703439157624, 'learning_rate': 1.918918918918919e-05, 'epoch': 0.03}
+  3%|██                                                                     | 71/2448 [04:06<2:11:27,  3.32s/it]  3%|██                                                                     | 72/2448 [04:09<2:11:22,  3.32s/it]                                                                                                                {'loss': 1.1175, 'grad_norm': 1.7102508974340962, 'learning_rate': 1.9459459459459463e-05, 'epoch': 0.03}
+  3%|██                                                                     | 72/2448 [04:09<2:11:22,  3.32s/it]  3%|██                                                                     | 73/2448 [04:13<2:11:12,  3.31s/it]                                                                                                                {'loss': 0.984, 'grad_norm': 1.8439017900051102, 'learning_rate': 1.972972972972973e-05, 'epoch': 0.03}
+  3%|██                                                                     | 73/2448 [04:13<2:11:12,  3.31s/it]  3%|██▏                                                                    | 74/2448 [04:16<2:11:05,  3.31s/it]                                                                                                                {'loss': 0.9032, 'grad_norm': 2.9880214996677528, 'learning_rate': 2e-05, 'epoch': 0.03}
+  3%|██▏                                                                    | 74/2448 [04:16<2:11:05,  3.31s/it]  3%|██▏                                                                    | 75/2448 [04:19<2:10:53,  3.31s/it]                                                                                                                {'loss': 1.5121, 'grad_norm': 2.3389400931231803, 'learning_rate': 1.999999124394951e-05, 'epoch': 0.03}
+  3%|██▏                                                                    | 75/2448 [04:19<2:10:53,  3.31s/it]  3%|██▏                                                                    | 76/2448 [04:22<2:10:48,  3.31s/it]                                                                                                                {'loss': 1.1783, 'grad_norm': 2.9104640489599607, 'learning_rate': 1.999996497581338e-05, 'epoch': 0.03}
+  3%|██▏                                                                    | 76/2448 [04:22<2:10:48,  3.31s/it]  3%|██▏                                                                    | 77/2448 [04:26<2:10:43,  3.31s/it]                                                                                                                {'loss': 1.6732, 'grad_norm': 2.4054724317178824, 'learning_rate': 1.9999921195637606e-05, 'epoch': 0.03}
+  3%|██▏                                                                    | 77/2448 [04:26<2:10:43,  3.31s/it]  3%|██▎                                                                    | 78/2448 [04:29<2:10:45,  3.31s/it]                                                                                                                {'loss': 1.2084, 'grad_norm': 3.070275794181154, 'learning_rate': 1.9999859903498856e-05, 'epoch': 0.03}
+  3%|██▎                                                                    | 78/2448 [04:29<2:10:45,  3.31s/it]
